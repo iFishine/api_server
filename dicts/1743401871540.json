@@ -1,0 +1,109 @@
+{
+  "Commands": [
+    {
+      "command": "AT+QECHO=1",
+      "device": "Main",
+      "expected_responses": [],
+      "order": 1,
+      "timeout": 2000
+    },
+    {
+      "command": "AT+CSUB",
+      "device": "Main",
+      "expected_responses": [],
+      "order": 2,
+      "timeout": 2000
+    },
+    {
+      "command": "AT+QECHO=1",
+      "device": "Main",
+      "expected_responses": [],
+      "order": 3,
+      "timeout": 2000
+    },
+    {
+      "command": "AT+CSUB",
+      "device": "Main",
+      "expected_responses": [],
+      "order": 4,
+      "timeout": 2000
+    },
+    {
+      "command": "AT+QECHO=1",
+      "device": "Main",
+      "expected_responses": [],
+      "order": 5,
+      "timeout": 2000
+    },
+    {
+      "command": "AT+CSUB",
+      "device": "Main",
+      "expected_responses": [],
+      "order": 6,
+      "timeout": 2000
+    },
+    {
+      "command": "AT+QECHO=1",
+      "device": "Main",
+      "expected_responses": [],
+      "order": 7,
+      "timeout": 2000
+    },
+    {
+      "command": "AT+CSUB",
+      "device": "Main",
+      "expected_responses": [],
+      "order": 8,
+      "timeout": 2000
+    },
+    {
+      "command": "AT+QECHO=1",
+      "device": "Main",
+      "expected_responses": [],
+      "order": 9,
+      "timeout": 2000
+    },
+    {
+      "command": "AT+CSUB",
+      "device": "Main",
+      "expected_responses": [],
+      "order": 10,
+      "timeout": 2000
+    }
+  ],
+  "ConfigForCommands": {
+    "concurrent_strategy": "sequential",
+    "error_actions": [
+      {
+        "retry": 1
+      }
+    ],
+    "status": "enabled",
+    "success_actions": [
+      {
+        "set_status": "disabled"
+      }
+    ],
+    "timeout": 4000
+  },
+  "ConfigForDevices": {
+    "data_bits": 8,
+    "dtr": false,
+    "flow_control": {
+      "dsr_dtr": false,
+      "rts_cts": false,
+      "xon_xoff": false
+    },
+    "parity": null,
+    "rts": false,
+    "status": "enabled",
+    "stop_bits": 1
+  },
+  "Devices": [
+    {
+      "baud_rate": 115200,
+      "name": "Main",
+      "port": "COM6"
+    }
+  ]
+}
