@@ -1,0 +1,190 @@
+{
+  "Devices": [
+    {
+      "name": "DeviceA",
+      "status": "enabled",
+      "port": "COM6",
+      "baud_rate": 115200,
+      "stop_bits": 1,
+      "parity": null,
+      "data_bits": 8,
+      "flow_control": {
+        "xon_xoff": false,
+        "rts_cts": false,
+        "dsr_dtr": false
+      },
+      "dtr": false,
+      "rts": false
+    }
+  ],
+  "Commands": [
+    {
+      "command": "AT+QRST",
+      "status": "enabled",
+      "expected_responses": [
+        "OK"
+      ],
+      "device": "DeviceA",
+      "order": 1,
+      "parameters": [],
+      "timeout": 1000,
+      "concurrent_strategy": "sequential",
+      "error_actions": [
+        {
+          "retry": 1
+        }
+      ]
+    },
+    {
+      "command": "AT+QECHO=1",
+      "status": "enabled",
+      "expected_responses": [
+        "OK"
+      ],
+      "device": "DeviceA",
+      "order": 2,
+      "parameters": [],
+      "timeout": 1000,
+      "concurrent_strategy": "sequential",
+      "error_actions": [
+        {
+          "retry": 1
+        }
+      ]
+    },
+    {
+      "command": "AT+QBLEINIT=2",
+      "status": "enabled",
+      "expected_responses": [
+        "AT+QBLEINIT=2",
+        "OK"
+      ],
+      "device": "DeviceA",
+      "order": 3,
+      "parameters": [],
+      "timeout": 1000,
+      "concurrent_strategy": "sequential",
+      "error_actions": [
+        {
+          "retry": 3
+        }
+      ]
+    },
+    {
+      "command": "AT+QBLENAME=BT-TestForFish",
+      "status": "enabled",
+      "expected_responses": [
+        "OK"
+      ],
+      "device": "DeviceA",
+      "order": 3,
+      "parameters": [],
+      "timeout": 1000,
+      "concurrent_strategy": "sequential",
+      "error_actions": [
+        {
+          "retry": 3
+        }
+      ]
+    },
+    {
+      "command": "AT+QBLEGATTSSRV=FF03",
+      "status": "enabled",
+      "expected_responses": [
+        "AT+QBLEGATTSSRV=FF03",
+        "OK"
+      ],
+      "device": "DeviceA",
+      "order": 4,
+      "parameters": [],
+      "timeout": 1000,
+      "concurrent_strategy": "sequential",
+      "error_actions": [
+        {
+          "retry": 1
+        }
+      ]
+    },
+    {
+      "command": "AT+QBLEGATTSCHAR=36f5",
+      "status": "enabled",
+      "expected_responses": [
+        "AT+QBLEGATTSCHAR=36f5",
+        "OK"
+      ],
+      "device": "DeviceA",
+      "order": 5,
+      "parameters": [],
+      "timeout": 1000,
+      "concurrent_strategy": "sequential",
+      "error_actions": [
+        {
+          "retry": 1
+        }
+      ]
+    },
+    {
+      "command": "AT+QBLEGATTSSRVDONE",
+      "status": "disabled",
+      "expected_responses": [
+        "AT+QBLEGATTSSRVDONE",
+        "OK"
+      ],
+      "device": "DeviceA",
+      "order": 6,
+      "parameters": [],
+      "timeout": 1000,
+      "concurrent_strategy": "sequential",
+      "error_actions": [
+        {
+          "retry": 1
+        }
+      ]
+    },
+    {
+      "command": "AT+QBLEADVSTART",
+      "status": "enabled",
+      "expected_responses": [
+        "AT+QBLEADVSTART",
+        "OK"
+      ],
+      "device": "DeviceA",
+      "order": 7,
+      "parameters": [],
+      "timeout": 1000,
+      "concurrent_strategy": "sequential",
+      "error_actions": [
+        {
+          "retry": 1
+        }
+      ]
+    },
+    {
+      "command": "AT+QBLEADDR?",
+      "status": "enabled",
+      "expected_responses": [
+        "AT+QBLEADDR?",
+        "OK"
+      ],
+      "device": "DeviceA",
+      "order": 8,
+      "parameters": [],
+      "timeout": 1000,
+      "concurrent_strategy": "sequential",
+      "success_actions": [
+        {
+          "save_conditional": {
+            "device": "DeviceB",
+            "pattern": "\\+QBLEADDR: (.+)",
+            "variable": "ble_address"
+          }
+        }
+      ],
+      "error_actions": [
+        {
+          "retry": 1
+        }
+      ]
+    }
+  ]
+}
